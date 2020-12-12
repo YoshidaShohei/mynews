@@ -18,3 +18,19 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add');
 });
+
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
+});
+
+// PHP/Laravel 09 Routingについて理解する
+// 課題3
+
+Route::get('XXX','Adomin\AAAController@bbb');
+
+// 課題4
+
+Route::group(['prefix'=>'admin'],function(){
+Route::get('admin/profile/create','admin\ProfileController@add');
+Route::get('admin/edit','admin\ProfileController@edit');
+});
