@@ -12,7 +12,8 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>プロファイルの新規作成</h2>
-                <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
+                {{-- 課題13.4 Admin\ProfileController の create Action に指定 --}}               
+                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -21,22 +22,29 @@
                             @endforeach
                         </ul>
                     @endif
+                    {{--課題13.4 氏名、性別、趣味、自己紹介を作成 --}}
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">氏名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="name" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">本文</label>
+                        <label class="col-md-2">性別</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <input type="gender" class="form-control" name="gender" value="{{ old('gender') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">画像</label>
+                        <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="hobby" class="form-control" name="hobby" value="{{ old('hobby') }}">
+                        </div>
+                    </div>                    
+                    <div class="form-group row">
+                        <label class="col-md-2">自己紹介</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" name="introducion" rows="20">{{ old('body') }}</textarea>
                         </div>
                     </div>
                     {{ csrf_field() }}
