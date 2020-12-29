@@ -16,7 +16,7 @@ class News extends Model
     
     //News Modelに関連付け
     public function histories()
-    {return $this->hasmany('App\History');
-    
+    {
+        return $this->hasmany('App\History');
     }
 }
