@@ -26,8 +26,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/create','Admin\ProfileController@create'); #php/laravel 課題13.3追記
     Route::get('profile/edit','Admin\ProfileController@edit');
     Route::post('profile/edit','Admin\ProfileController@update'); #pgp/laravel 課題13.6 追記
-    Route::get('/', 'NewsController@index');
 });
+    Route::get('/', 'NewsController@index');
+    Route::get('profile', 'ProfileController@index');
 
 Auth::routes();
 
